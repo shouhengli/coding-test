@@ -1,0 +1,7 @@
+*.log
+.nyc_output
+assets/scripts
+assets/styles
+coverage
+node_modules
+
