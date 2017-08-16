@@ -6,10 +6,11 @@ const PORT = 3000;
 let app = express();
 
 app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', 'server/views')
+app.use(express.static('server/assets'));
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Coding Test' });
 });
 
 app.listen(PORT, () => {

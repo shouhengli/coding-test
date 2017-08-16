@@ -1,0 +1,36 @@
+{
+  "name": "coding-test",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Sean Li <sohey33@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "server-start": "babel-node server/src/index.js",
+    "server-test": "mocha --require babel-register --require server/test/support --recursive server/test/*-spec.js",
+    "server-watch": "nodemon --watch server/test/ --watch server/src/ --ext js --exec \"npm run server-test && npm run server-start\"",
+    "server-coverage": "NODE_ENV=test nyc npm run server-test",
+    "server": "npm run server-coverage && npm run server-start"
+  },
+  "babel": {
+    "presets": ["env"]
+  },
+  "dependencies": {
+    "express": "~4.15.2",
+    "hbs": "~4.0.1"
+  },
+  "nyc": {
+    "exclude": ["server/webpack.config.js", "server/test/**"]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.1.0",
+    "sinon": "^3.2.0",
+    "webpack": "^3.5.5"
+  }
+}

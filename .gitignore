@@ -1,7 +1,7 @@
 *.log
+*.swp
 .nyc_output
-assets/scripts
-assets/styles
+app/assets
 coverage
 node_modules
 
