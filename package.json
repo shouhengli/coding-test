@@ -6,11 +6,16 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+		"install": "cd client && yarn install",
     "server-start": "babel-node server/src/index.js",
-    "server-test": "mocha --require babel-register --require server/test/support --recursive server/test/*-spec.js",
-    "server-watch": "nodemon --watch server/test/ --watch server/src/ --ext js --exec \"npm run server-test && npm run server-start\"",
-    "server-coverage": "NODE_ENV=test nyc npm run server-test",
-    "server": "npm run server-coverage && npm run server-start"
+    "server-test": "mocha --require babel-register --require server/tests/support --recursive server/tests/*-spec.js",
+    "server-watch": "nodemon --watch server/tests/ --watch server/src/ --ext js --exec \"yarn server-test && yarn server-start\"",
+    "server-coverage": "NODE_ENV=test nyc yarn server-test",
+    "server": "yarn server-coverage && yarn server-start",
+    "client-build": "cd client && yarn build",
+    "client-start": "cd client && yarn start",
+    "client-test": "cd client && yarn test",
+    "client-coverage": "cd client && yarn coverage"
   },
   "babel": {
     "presets": ["env"]
@@ -20,7 +25,7 @@
     "hbs": "~4.0.1"
   },
   "nyc": {
-    "exclude": ["server/webpack.config.js", "server/test/**"]
+    "exclude": ["server/webpack.config.js", "server/tests/**"]
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
