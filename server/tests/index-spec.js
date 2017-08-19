@@ -10,7 +10,7 @@ describe('server app', function() {
 
   it('exposes assets as a static file repository', done => {
     let asset = '/an-asset.txt';
-    let assetLocation = `server/assets${asset}`;
+    let assetLocation = `assets${asset}`;
     open(assetLocation, 'w', err => {
       chai.request(server).get(asset).end((err, response) => {
         if (err) throw err;
@@ -43,7 +43,7 @@ describe('server app', function() {
     it('renders the correct script tag', done => {
       chai.request(server).get('/').end((err, response) => {
         expect(response.text).to.include(
-          '<script src="scripts/coding-test.js"></script>',
+          '<script src="scripts/coding-test.js"></script>'
         );
         done();
       });

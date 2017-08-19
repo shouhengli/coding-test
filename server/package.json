@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Sean Li <sohey33@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "test": "mocha --require babel-register --require tests/support --recursive tests/*-spec.js",
+    "watch": "nodemon --watch tests/ --watch src/ --ext js --exec \"yarn test && yarn start\"",
+    "coverage": "NODE_ENV=test nyc yarn test",
+    "server": "yarn coverage && yarn start"
+  },
+  "babel": {
+    "presets": ["env"]
+  },
+  "dependencies": {
+    "express": "~4.15.2",
+    "hbs": "~4.0.1"
+  },
+  "nyc": {
+    "exclude": ["webpack.config.js", "tests/**"]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.1.0",
+    "sinon": "^3.2.0",
+    "webpack": "^3.5.5"
+  }
+}

@@ -17,6 +17,8 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
+    "bulma": "^0.5.1",
+    "ember-bulma": "^0.3.1",
     "ember-cli": "~2.14.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.3.0",
@@ -28,6 +30,7 @@
     "ember-cli-htmlbars-inline-precompile": "^0.4.3",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-mocha": "^0.14.4",
+    "ember-cli-sass": "^6.2.0",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",

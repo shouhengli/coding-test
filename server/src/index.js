@@ -6,15 +6,15 @@ const PORT = 3000;
 let app = express();
 
 app.set('view engine', 'hbs');
-app.set('views', 'server/views')
-app.use(express.static('server/assets'));
+app.set('views', 'views');
+app.use(express.static('assets'));
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Coding Test' });
+  res.render('index', {title: 'Coding Test'});
 });
 
 app.listen(PORT, () => {
-	console.log('App being served @ http://localhost:3000');
+  console.log('App being served @ http://localhost:3000');
 });
 
 export default app;
