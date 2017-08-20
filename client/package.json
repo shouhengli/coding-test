@@ -18,6 +18,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "bulma": "^0.5.1",
+    "elvis-network": "^0.2.2",
     "ember-bulma": "^0.3.1",
     "ember-cli": "~2.14.2",
     "ember-cli-app-version": "^3.0.0",

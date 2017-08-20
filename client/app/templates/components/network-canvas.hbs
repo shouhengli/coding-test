@@ -1,1 +1,8 @@
-{{yield}}
+{{#visjs-network options=networkOptions}}
+	{{#each users as |user|}}
+		{{visjs-node nId=user.id label=user.id title=user.id}}
+	{{/each}}
+	{{#each relations as |rel|}}
+		{{visjs-edge from=rel.from to=rel.to arrows="to"}}
+	{{/each}}
+{{/visjs-network}}
