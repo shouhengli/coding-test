@@ -3,8 +3,8 @@ import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 
-describe('Integration | Component | tags frequency', function() {
-  setupComponentTest('tags-frequency', {
+describe('Integration | Component | tag frequency bubble', function() {
+  setupComponentTest('tag-frequency-bubble', {
     integration: true
   });
 
@@ -13,12 +13,12 @@ describe('Integration | Component | tags frequency', function() {
     // Handle any actions with this.on('myAction', function(val) { ... });
     // Template block usage:
     // this.render(hbs`
-    //   {{#tags-frequency}}
+    //   {{#tag-frequency-bubble}}
     //     template content
-    //   {{/tags-frequency}}
+    //   {{/tag-frequency-bubble}}
     // `);
 
-    this.render(hbs`{{tags-frequency}}`);
+    this.render(hbs`{{tag-frequency-bubble}}`);
     expect(this.$()).to.have.length(1);
   });
 });

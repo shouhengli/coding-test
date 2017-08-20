@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   relations: null,
   init() {
     this._super(...arguments);
-    this.actions.drawSamples();
+    this.actions.drawSamples.call(this);
   },
   actions: {
     async drawSamples() {

@@ -1,0 +1,54 @@
+/* global crossfilter, d3, dc */
+
+import Ember from 'ember';
+
+const {on, observer} = Ember;
+
+export default Ember.Component.extend({
+  chart: null,
+  chartOptions: {
+    elasticRadius: true,
+    r: d3.scale.linear(),
+    x: d3.scale.ordinal(),
+    y: d3.scale.ordinal()
+  },
+  drawChart: on(
+    'init',
+    observer('users', function() {
+      let users = this.get('users'),
+        chart = this.get('chart');
+
+      if (!users) {
+        if (!chart) {
+          return;
+        }
+        chart.resetSvg();
+        this.set('chart', null);
+        return;
+      }
+
+      let redraw = !!chart,
+        tags = [].concat.apply([], users.map(u => u.get('tags'))),
+        ndx = crossfilter(tags),
+        tagDimension = ndx.dimension(d => d),
+        tagGroup = tagDimension.group();
+
+      chart = chart || dc.bubbleCloud('#bubble-chart');
+
+      chart.options(
+        Object.assign(
+          {
+            radiusValueAccessor: d => d.value,
+            dimension: tagDimension,
+            group: tagGroup
+          },
+          this.get('chartOptions')
+        )
+      );
+
+      redraw ? chart.redraw() : chart.render();
+      dc.tooltipMixin(chart);
+      this.set('chart', chart);
+    })
+  )
+});

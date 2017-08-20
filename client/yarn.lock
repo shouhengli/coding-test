@@ -6379,7 +6379,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vis@github:tenders-exposed/vis#fix/join-clustered-edges":
+vis@tenders-exposed/vis#fix/join-clustered-edges:
   version "4.20.0"
   resolved "https://codeload.github.com/tenders-exposed/vis/tar.gz/24a49508197f682844775bd351e2713efd8b11fc"
   dependencies:

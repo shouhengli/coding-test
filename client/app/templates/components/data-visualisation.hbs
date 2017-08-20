@@ -1,17 +1,17 @@
 {{#bulma-container}}
-	{{#bulma-columns}}
-	  {{#bulma-column isHalf=true}}
-			{{network-canvas users=users relations=relations}}
-	  {{/bulma-column}}
-	  {{#bulma-column isHalf=true}}
-			{{tags-frequency}}
-	  {{/bulma-column}}
-	{{/bulma-columns}}
-	{{#bulma-button onmousedown=(action "drawSamples") label="Primary" isPrimary=true}}
-		ADD
-	{{/bulma-button}}
-	{{#bulma-button onmousedown=(action "clearSamples")}}
-		CLEAR
-	{{/bulma-button}}
+  {{#bulma-columns}}
+    {{#bulma-column isHalf=true}}
+      {{network-canvas users=users relations=relations}}
+    {{/bulma-column}}
+    {{#bulma-column isHalf=true}}
+      {{tag-frequency-bubble users=users}}
+    {{/bulma-column}}
+  {{/bulma-columns}}
+  {{#bulma-button onmousedown=(action "drawSamples") label="Primary" isPrimary=true}}
+    ADD
+  {{/bulma-button}}
+  {{#bulma-button onmousedown=(action "clearSamples")}}
+    CLEAR
+  {{/bulma-button}}
 {{/bulma-container}}
 
