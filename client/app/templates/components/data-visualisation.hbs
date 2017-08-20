@@ -1,0 +1,17 @@
+{{#bulma-container}}
+	{{#bulma-columns}}
+	  {{#bulma-column isHalf=true}}
+			{{network-canvas}}
+	  {{/bulma-column}}
+	  {{#bulma-column isHalf=true}}
+			{{tags-frequency}}
+	  {{/bulma-column}}
+	{{/bulma-columns}}
+	{{#bulma-button onClick=(action "drawSamples") label="Primary" isPrimary=true}}
+		ADD
+	{{/bulma-button}}
+	{{#bulma-button onClick=(action "clearSamples")}}
+		CLEAR
+	{{/bulma-button}}
+{{/bulma-container}}
+

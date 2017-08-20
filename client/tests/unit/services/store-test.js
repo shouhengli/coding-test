@@ -110,4 +110,20 @@ describe('Unit | Service | store', function() {
       window.store.tags.restore();
     });
   });
+
+  describe('#clear', function() {
+    it('clears users in cache', async function() {
+      store = this.subject();
+      await store.fetchSamples();
+      store.clear();
+      expect(store.getUsers()).to.be.empty;
+    });
+
+    it('clears relations in cache', async function() {
+      store = this.subject();
+      await store.fetchSamples();
+      store.clear();
+      expect(store.getRelations()).to.be.empty;
+    });
+  });
 });

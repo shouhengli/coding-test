@@ -54,5 +54,9 @@ export default Ember.Service.extend({
     tags.forEach((t, i) => {
       addUser.call(this, {id: ids[i], tags: t});
     });
+  },
+  clear() {
+    this.get('cache.users').clear();
+    this.get('cache.relations').clear();
   }
 });
