@@ -5,7 +5,7 @@
   "author": "Sean Li <sohey33@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "install": "cd client && yarn install && cd ../server && yarn install",
+    "install": "cd client && yarn install && bower install && cd ../server && yarn install",
     "server-start": "cd server && yarn start",
     "server-test": "cd server && yarn test",
     "server-watch": "cd server && yarn watch",
@@ -14,6 +14,7 @@
     "client-build": "cd client && yarn build",
     "client-start": "cd client && yarn start",
     "client-test": "cd client && yarn test",
+    "client-watch": "cd client && yarn watch",
     "client-coverage": "cd client && yarn coverage"
   }
 }
