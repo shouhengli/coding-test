@@ -13,6 +13,7 @@
     "build": "ember build --environment production --output-path ../server/assets/",
     "start": "ember server",
     "test": "ember test",
+    "watch": "ember test --server",
     "coverage": "COVERAGE=true ember test"
   },
   "devDependencies": {
