@@ -32,7 +32,10 @@ export default Ember.Component.extend({
         tags = [].concat.apply([], users.map(u => u.get('tags'))),
         ndx = crossfilter(tags),
         tagDimension = ndx.dimension(d => d),
-        tagGroup = tagDimension.group();
+        tagGroup = tagDimension.group(),
+        freq = tagGroup.all(),
+        freqDimension = crossfilter(freq).dimension(d => d.value),
+        freqGroup = freqDimension.group();
 
       chart = chart || dc.bubbleCloud('#bubble-chart');
 
@@ -40,8 +43,8 @@ export default Ember.Component.extend({
         Object.assign(
           {
             radiusValueAccessor: d => d.value,
-            dimension: tagDimension,
-            group: tagGroup
+            dimension: freqDimension,
+            group: freqGroup
           },
           this.get('chartOptions')
         )
