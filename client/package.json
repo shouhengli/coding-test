@@ -10,7 +10,7 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build",
+    "build": "ember build --environment production --output-path ../server/assets/",
     "start": "ember server",
     "test": "ember test",
     "coverage": "COVERAGE=true ember test"

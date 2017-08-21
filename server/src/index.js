@@ -9,10 +9,6 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 app.use(express.static('assets'));
 
-app.get('/', (req, res) => {
-  res.render('index', {title: 'Coding Test'});
-});
-
 app.listen(PORT, () => {
   console.log('App being served @ http://localhost:3000');
 });

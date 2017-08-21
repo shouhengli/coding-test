@@ -1,9 +1,15 @@
 {{#bulma-container}}
   {{#bulma-columns}}
     {{#bulma-column isHalf=true}}
+      {{#bulma-header}}
+        Network
+      {{/bulma-header}}
       {{network-canvas users=users relations=relations}}
     {{/bulma-column}}
     {{#bulma-column isHalf=true}}
+      {{#bulma-header}}
+        Hashtags
+      {{/bulma-header}}
       {{tag-frequency-bubble users=users}}
     {{/bulma-column}}
   {{/bulma-columns}}

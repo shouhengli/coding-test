@@ -2,8 +2,6 @@ import server from '../src';
 import {open, unlink} from 'fs';
 
 describe('server app', function() {
-  it('is an express server');
-
   it('uses hbs as view engine', () => {
     expect(server.get('view engine')).to.equal('hbs');
   });
@@ -24,27 +22,23 @@ describe('server app', function() {
   });
 
   describe('"/" route', function() {
-    it('renders the correct title', done => {
-      let title = '<title>Coding Test</title>';
-
-      chai.request(server).get('/').end((err, response) => {
-        expect(response.text).to.include(title);
-        done();
-      });
-    });
-
     it('renders the correct content', done => {
       chai.request(server).get('/').end((err, response) => {
-        expect(response.text).to.include('Welcome to Coding Test');
+        expect(response.text).to.include('<!DOCTYPE html>');
         done();
       });
     });
 
     it('renders the correct script tag', done => {
       chai.request(server).get('/').end((err, response) => {
-        expect(response.text).to.include(
-          '<script src="scripts/coding-test.js"></script>'
-        );
+        expect(response.text).to.include('<script src="/assets/client-');
+        done();
+      });
+    });
+
+    it('renders the correct link tag', done => {
+      chai.request(server).get('/').end((err, response) => {
+        expect(response.text).to.include('<link rel="stylesheet" href="/assets/client-');
         done();
       });
     });

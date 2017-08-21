@@ -7,6 +7,7 @@ const {on, observer} = Ember;
 export default Ember.Component.extend({
   chart: null,
   chartOptions: {
+    height: 600,
     elasticRadius: true,
     r: d3.scale.linear(),
     x: d3.scale.ordinal(),
